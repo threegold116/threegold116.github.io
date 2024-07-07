@@ -3,7 +3,7 @@
   <entry>
     <title>huggingface_trainer</title>
     <url>/2024/07/06/huggingface-trainer/</url>
-    <content><![CDATA[<p><img src="/images/test.png"></p>
+    <content><![CDATA[<p><img src="https://github.com/threegold116/picx-images-hosting/raw/master/20240707/721.6bgy8zq948.webp" alt="721"></p>
 ]]></content>
   </entry>
   <entry>
@@ -22,6 +22,22 @@
 <h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
 
 <p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+]]></content>
+  </entry>
+  <entry>
+    <title>文本生成评估指标</title>
+    <url>/2024/07/06/%E6%96%87%E6%9C%AC%E7%94%9F%E6%88%90%E8%AF%84%E4%BC%B0%E6%8C%87%E6%A0%87/</url>
+    <content><![CDATA[<blockquote>
+<p><strong>references</strong>:</p>
+<p><a href="https://leezhao415.github.io/2021/08/08/%E5%B8%B8%E8%A7%81%E7%9A%84NLG%E8%AF%84%E4%BC%B0%E6%8C%87%E6%A0%87/">常见的NLG评估指标 | 且听风吟，御剑于心！ (leezhao415.github.io)</a></p>
+</blockquote>
+<blockquote>
+<p>tools:</p>
+<p><a href="https://github.com/Maluuba/nlg-eval">https://github.com/Maluuba/nlg-eval</a></p>
+<p><a href="https://pypi.org/project/nlg-metricverse/">https://pypi.org/project/nlg-metricverse/</a></p>
+</blockquote>
+<h4 id="机器自动化指标"><a href="#机器自动化指标" class="headerlink" title="机器自动化指标"></a>机器自动化指标</h4><h5 id="BLEU-Bilingual-Evaluation-Understudy（双语评估研究）"><a href="#BLEU-Bilingual-Evaluation-Understudy（双语评估研究）" class="headerlink" title="BLEU[Bilingual Evaluation Understudy（双语评估研究）]"></a>BLEU[Bilingual Evaluation Understudy（双语评估研究）]</h5><h4 id="LLM指标"><a href="#LLM指标" class="headerlink" title="LLM指标"></a>LLM指标</h4><h4 id="开源库对比"><a href="#开源库对比" class="headerlink" title="开源库对比"></a>开源库对比</h4><p><a href="https://github.com/disi-unibo-nlp/nlg-metricverse/blob/main/comparison.md">https://github.com/disi-unibo-nlp/nlg-metricverse/blob/main/comparison.md</a></p>
+<p><a href="https://github.com/Maluuba/nlg-eval">https://github.com/Maluuba/nlg-eval</a></p>
 ]]></content>
   </entry>
 </search>
