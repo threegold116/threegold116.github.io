@@ -19,19 +19,19 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.20.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="深度学习中的Cuda references: [1]cuda&#x2F;cuda_toolkit&#x2F;gpt&#x2F;torch关系 [2]驱动与操作系统 [3]cuda driver&#x2F;cuda-toolkit版本包含及对应关系 [4]gpu硬件的介绍 [5]nvcc和nvidia-smi显示版本不同的原因 [6]torch安装的cudatoolkit [7]cudatoolkit官网:cudatoolkit的组成 [">
+    <meta name="description" content="深度学习中的Cuda  references: [1]cuda&#x2F;cuda_toolkit&#x2F;gpt&#x2F;torch关系 [2]驱动与操作系统 [3]cuda driver&#x2F;cuda-toolkit版本包含及对应关系 [4]gpu硬件的介绍 [5]nvcc和nvidia-smi显示版本不同的原因 [6]torch安装的cudatoolkit [7]cudatoolkit官网:cudatoolkit的组成">
 <meta property="og:type" content="article">
 <meta property="og:title" content="深度学习中的CUDA">
 <meta property="og:url" content="http://example.com/2024/07/29/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E4%B8%AD%E7%9A%84CUDA/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="深度学习中的Cuda references: [1]cuda&#x2F;cuda_toolkit&#x2F;gpt&#x2F;torch关系 [2]驱动与操作系统 [3]cuda driver&#x2F;cuda-toolkit版本包含及对应关系 [4]gpu硬件的介绍 [5]nvcc和nvidia-smi显示版本不同的原因 [6]torch安装的cudatoolkit [7]cudatoolkit官网:cudatoolkit的组成 [">
+<meta property="og:description" content="深度学习中的Cuda  references: [1]cuda&#x2F;cuda_toolkit&#x2F;gpt&#x2F;torch关系 [2]驱动与操作系统 [3]cuda driver&#x2F;cuda-toolkit版本包含及对应关系 [4]gpu硬件的介绍 [5]nvcc和nvidia-smi显示版本不同的原因 [6]torch安装的cudatoolkit [7]cudatoolkit官网:cudatoolkit的组成">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://i-blog.csdnimg.cn/blog_migrate/91e3505b47511db2ba97d3a2bea1b97a.png">
 <meta property="og:image" content="http://www.ituring.com.cn/figures/2014/LinuxDriver/01.d01z.001.png">
 <meta property="og:image" content="https://github.com/threegold116/picx-images-hosting/raw/master/20240729/image.7p3i8i1jk2.webp">
 <meta property="og:image" content="https://i-blog.csdnimg.cn/blog_migrate/5aaedbe8ae4663b3faf7c7a2b47c1bfe.png">
 <meta property="article:published_time" content="2024-07-29T06:39:41.000Z">
-<meta property="article:modified_time" content="2024-07-29T06:40:22.084Z">
+<meta property="article:modified_time" content="2024-07-29T06:43:02.618Z">
 <meta property="article:author" content="ThreeGold Jiang">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://i-blog.csdnimg.cn/blog_migrate/91e3505b47511db2ba97d3a2bea1b97a.png">
@@ -116,7 +116,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E4%B8%AD%E7%9A%84Cuda"><span class="nav-number">1.</span> <span class="nav-text">深度学习中的Cuda</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%80%E3%80%81Cuda%E6%98%AF%E4%BB%80%E4%B9%88"><span class="nav-number">1.0.0.1.</span> <span class="nav-text">一、Cuda是什么</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-1-Cuda%E7%9A%84%E5%90%AB%E4%B9%89"><span class="nav-number">1.0.0.1.1.</span> <span class="nav-text">1.1 Cuda的含义</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#1-1-1-cuda%E7%9B%B8%E5%85%B3%E6%A6%82%E5%BF%B5"><span class="nav-number">1.0.0.1.1.1.</span> <span class="nav-text">1.1.1 cuda相关概念</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#1-1-2-%E7%9B%B8%E5%85%B3%E6%8C%87%E4%BB%A4%E6%98%BE%E7%A4%BA%E7%9A%84cuda"><span class="nav-number">1.0.0.1.1.2.</span> <span class="nav-text">1.1.2 相关指令显示的cuda</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#1-1-3-%E4%B8%8D%E5%90%8C%E6%83%85%E5%86%B5%E4%B8%8B%E6%8F%90%E5%88%B0%E7%9A%84%E7%9A%84Cuda"><span class="nav-number">1.0.0.1.1.3.</span> <span class="nav-text">1.1.3 不同情况下提到的的Cuda</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#1-2-GPU%E3%80%81Nvidia-Driver%E5%92%8C-Cuda-Toolkit%E7%9A%84%E5%85%B3%E7%B3%BB"><span class="nav-number">1.0.0.1.2.</span> <span class="nav-text">1.2 GPU、Nvidia Driver和 Cuda Toolkit的关系</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#1-2-1-nvidia-driver%E5%92%8Ccuda-toolkit%E7%9A%84%E5%85%B3%E7%B3%BB"><span class="nav-number">1.0.0.1.2.1.</span> <span class="nav-text">1.2.1  nvidia driver和cuda toolkit的关系</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#1-3-nvidia-Driver-cuda-driver"><span class="nav-number">1.0.0.1.3.</span> <span class="nav-text">1.3 nvidia Driver&#x2F;cuda driver</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#1-4-cuda-toolkit"><span class="nav-number">1.0.0.1.4.</span> <span class="nav-text">1.4 cuda-toolkit</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#1-4-nvcc-Nvidia-CUDA-Compiler"><span class="nav-number">1.0.0.1.5.</span> <span class="nav-text">1.4 nvcc (Nvidia CUDA Compiler)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#1-5-cudnn"><span class="nav-number">1.0.0.1.6.</span> <span class="nav-text">1.5 cudnn</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BA%8C%E3%80%81Cuda%E7%9A%84%E5%AE%89%E8%A3%85"><span class="nav-number">1.0.0.2.</span> <span class="nav-text">二、Cuda的安装</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#2-1-%E5%B8%B8%E8%A7%81%E5%AE%89%E8%A3%85%E9%80%94%E5%BE%84%E5%AF%B9%E5%BA%94%E5%85%B3%E7%B3%BB"><span class="nav-number">1.0.0.2.1.</span> <span class="nav-text">2.1 常见安装途径对应关系</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#2-1-1-%E8%8B%B1%E4%BC%9F%E8%BE%BE%E5%AE%98%E7%BD%91%E5%AE%89%E8%A3%85%EF%BC%9A"><span class="nav-number">1.0.0.2.1.1.</span> <span class="nav-text">2.1.1 英伟达官网安装：</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#2-1-2-conda%E5%AE%89%E8%A3%85"><span class="nav-number">1.0.0.2.1.2.</span> <span class="nav-text">2.1.2 conda安装</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#2-1-1-%E8%8B%B1%E4%BC%9F%E8%BE%BE%E5%AE%98%E6%96%B9%E5%AE%89%E8%A3%85"><span class="nav-number">1.0.0.2.1.3.</span> <span class="nav-text">2.1.1 英伟达官方安装</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-2-%E4%BD%BF%E7%94%A8%E5%A4%9A%E7%89%88%E6%9C%AC%E7%9A%84cuda-toolkit"><span class="nav-number">1.0.0.2.2.</span> <span class="nav-text">2.2 使用多版本的cuda-toolkit</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#2-2-1-%E5%8D%95CUDA-Driver"><span class="nav-number">1.0.0.2.2.1.</span> <span class="nav-text">2.2.1 单CUDA Driver</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-3-%E4%BD%BF%E7%94%A8%E5%A4%9A%E7%89%88%E6%9C%AC%E7%9A%84nvidia-driver"><span class="nav-number">1.0.0.2.3.</span> <span class="nav-text">2.3 使用多版本的nvidia driver</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%89%E3%80%81Torch-%E4%B8%8E-Cuda"><span class="nav-number">1.0.0.3.</span> <span class="nav-text">三、Torch 与 Cuda</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#3-1-%E6%9F%A5%E6%89%BE%E5%8F%AF%E7%94%A8CUDA%E7%9A%84%E8%BF%87%E7%A8%8B"><span class="nav-number">1.0.0.3.1.</span> <span class="nav-text">3.1 查找可用CUDA的过程</span></a></li></ol></li></ol></li></ol></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E4%B8%AD%E7%9A%84cuda"><span class="nav-number">1.</span> <span class="nav-text"> 深度学习中的Cuda</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%80-cuda%E6%98%AF%E4%BB%80%E4%B9%88"><span class="nav-number">1.0.0.1.</span> <span class="nav-text"> 一、Cuda是什么</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#11-cuda%E7%9A%84%E5%90%AB%E4%B9%89"><span class="nav-number">1.0.0.1.1.</span> <span class="nav-text"> 1.1 Cuda的含义</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#111-cuda%E7%9B%B8%E5%85%B3%E6%A6%82%E5%BF%B5"><span class="nav-number">1.0.0.1.1.1.</span> <span class="nav-text"> 1.1.1 cuda相关概念</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#112-%E7%9B%B8%E5%85%B3%E6%8C%87%E4%BB%A4%E6%98%BE%E7%A4%BA%E7%9A%84cuda"><span class="nav-number">1.0.0.1.1.2.</span> <span class="nav-text"> 1.1.2 相关指令显示的cuda</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#113-%E4%B8%8D%E5%90%8C%E6%83%85%E5%86%B5%E4%B8%8B%E6%8F%90%E5%88%B0%E7%9A%84%E7%9A%84cuda"><span class="nav-number">1.0.0.1.1.3.</span> <span class="nav-text"> 1.1.3 不同情况下提到的的Cuda</span></a></li></ol></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#pytorch%E4%BE%9D%E8%B5%96%E7%9A%84cuda%E7%89%88%E6%9C%AC"><span class="nav-number">1.1.</span> <span class="nav-text"> pytorch依赖的cuda版本</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#12-gpu-nvidia-driver%E5%92%8C-cuda-toolkit%E7%9A%84%E5%85%B3%E7%B3%BB"><span class="nav-number">1.1.0.0.1.</span> <span class="nav-text"> 1.2 GPU、Nvidia Driver和 Cuda Toolkit的关系</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#121-nvidia-driver%E5%92%8Ccuda-toolkit%E7%9A%84%E5%85%B3%E7%B3%BB"><span class="nav-number">1.1.0.0.1.1.</span> <span class="nav-text"> 1.2.1  nvidia driver和cuda toolkit的关系</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#13-nvidia-drivercuda-driver"><span class="nav-number">1.1.0.0.2.</span> <span class="nav-text"> 1.3 nvidia Driver&#x2F;cuda driver</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#14-cuda-toolkit"><span class="nav-number">1.1.0.0.3.</span> <span class="nav-text"> 1.4 cuda-toolkit</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#14-nvcc-nvidia-cuda-compiler"><span class="nav-number">1.1.0.0.4.</span> <span class="nav-text"> 1.4 nvcc (Nvidia CUDA Compiler)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#15-cudnn"><span class="nav-number">1.1.0.0.5.</span> <span class="nav-text"> 1.5 cudnn</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BA%8C-cuda%E7%9A%84%E5%AE%89%E8%A3%85"><span class="nav-number">1.1.0.1.</span> <span class="nav-text"> 二、Cuda的安装</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#21-%E5%B8%B8%E8%A7%81%E5%AE%89%E8%A3%85%E9%80%94%E5%BE%84%E5%AF%B9%E5%BA%94%E5%85%B3%E7%B3%BB"><span class="nav-number">1.1.0.1.1.</span> <span class="nav-text"> 2.1 常见安装途径对应关系</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#211-%E8%8B%B1%E4%BC%9F%E8%BE%BE%E5%AE%98%E7%BD%91%E5%AE%89%E8%A3%85"><span class="nav-number">1.1.0.1.1.1.</span> <span class="nav-text"> 2.1.1 英伟达官网安装：</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#212-conda%E5%AE%89%E8%A3%85"><span class="nav-number">1.1.0.1.1.2.</span> <span class="nav-text"> 2.1.2 conda安装</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#211-%E8%8B%B1%E4%BC%9F%E8%BE%BE%E5%AE%98%E6%96%B9%E5%AE%89%E8%A3%85"><span class="nav-number">1.1.0.1.1.3.</span> <span class="nav-text"> 2.1.1 英伟达官方安装</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#22-%E4%BD%BF%E7%94%A8%E5%A4%9A%E7%89%88%E6%9C%AC%E7%9A%84cuda-toolkit"><span class="nav-number">1.1.0.1.2.</span> <span class="nav-text"> 2.2 使用多版本的cuda-toolkit</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#221-%E5%8D%95cuda-driver"><span class="nav-number">1.1.0.1.2.1.</span> <span class="nav-text"> 2.2.1 单CUDA Driver</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#23-%E4%BD%BF%E7%94%A8%E5%A4%9A%E7%89%88%E6%9C%AC%E7%9A%84nvidia-driver"><span class="nav-number">1.1.0.1.3.</span> <span class="nav-text"> 2.3 使用多版本的nvidia driver</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%89-torch-%E4%B8%8E-cuda"><span class="nav-number">1.1.0.2.</span> <span class="nav-text"> 三、Torch 与 Cuda</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#31-%E6%9F%A5%E6%89%BE%E5%8F%AF%E7%94%A8cuda%E7%9A%84%E8%BF%87%E7%A8%8B"><span class="nav-number">1.1.0.2.1.</span> <span class="nav-text"> 3.1 查找可用CUDA的过程</span></a></li></ol></li></ol></li></ol></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -192,7 +192,7 @@
       <span class="post-meta-item-text">Posted on</span>
       
 
-      <time title="Created: 2024-07-29 14:39:41 / Modified: 14:40:22" itemprop="dateCreated datePublished" datetime="2024-07-29T14:39:41+08:00">2024-07-29</time>
+      <time title="Created: 2024-07-29 14:39:41 / Modified: 14:43:02" itemprop="dateCreated datePublished" datetime="2024-07-29T14:39:41+08:00">2024-07-29</time>
     </span>
 
   
@@ -204,7 +204,8 @@
     
     
     
-    <div class="post-body" itemprop="articleBody"><h1 id="深度学习中的Cuda"><a href="#深度学习中的Cuda" class="headerlink" title="深度学习中的Cuda"></a>深度学习中的Cuda</h1><blockquote>
+    <div class="post-body" itemprop="articleBody"><h1 id="深度学习中的cuda"><a class="markdownIt-Anchor" href="#深度学习中的cuda"></a> 深度学习中的Cuda</h1>
+<blockquote>
 <p><strong>references</strong>:<span id="jump"></span></p>
 <p><a target="_blank" rel="noopener" href="https://blog.csdn.net/Blackoutdragon/article/details/130233562">[1]cuda/cuda_toolkit/gpt/torch关系</a></p>
 <p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/polin/p/17159858.html">[2]驱动与操作系统</a></p>
@@ -226,67 +227,89 @@
 </blockquote>
 <p>常见问题:</p>
 <ul>
-<li>conda环境和用户环境、内核环境之间的关系<ul>
+<li>
+<p>conda环境和用户环境、内核环境之间的关系</p>
+<ul>
 <li>:TOCHECK</li>
 </ul>
 </li>
-<li>torch.cuda.version能用，但为什么需要配置CUDA_HOME<ul>
+<li>
+<p>torch.cuda.version能用，但为什么需要配置CUDA_HOME</p>
+<ul>
 <li>参考<a href="#ref:16">torch检索cuda的流程</a></li>
 <li>CUDA_HOME时编译过程中需要的，conda只安装了CUDA的共享库。</li>
 </ul>
 </li>
-<li><p>torch需要的是什么cuda</p>
+<li>
+<p>torch需要的是什么cuda</p>
 <ul>
 <li>需要的是cuda-toolkit，可通过conda安装或提前安装。</li>
 </ul>
 </li>
-<li><p>conda安装的cudatoolit和torch安装的cudatoolkit的区别</p>
+<li>
+<p>conda安装的cudatoolit和torch安装的cudatoolkit的区别</p>
 <ul>
 <li>torch安装的cudatoolkit其主要包含应用程序在使用 CUDA 相关的功能时所依赖的<strong>动态链接库，不会安装驱动程序</strong>。</li>
 </ul>
 </li>
-</ul>
+<li>
+<p>nvcc-v 版本和nvidia-smi版本的不同</p>
 <ul>
-<li>nvcc-v 版本和nvidia-smi版本的不同<ul>
 <li>nvcc-v显示安装的cuda-toolkit版本对应的<strong>cuda api</strong>版本。而nvidia-smi显示安装的nvidia driver版本对应的<strong>cuda api</strong>版本。</li>
 <li>一般只需要关注cuda-toolkit的版本，并满足和nvidia driver版本的<a href="#ref:3">对应关系</a>即可。</li>
 <li>同时也是runtime api和driver api的不同，详细了解可以参考<a href="#ref:14">[14]</a>和<a href="#ref:15">[15]</a>。</li>
 </ul>
 </li>
 </ul>
-<h4 id="一、Cuda是什么"><a href="#一、Cuda是什么" class="headerlink" title="一、Cuda是什么"></a>一、Cuda是什么</h4><h5 id="1-1-Cuda的含义"><a href="#1-1-Cuda的含义" class="headerlink" title="1.1 Cuda的含义"></a>1.1 Cuda的含义</h5><p>你说的对，但Cuda (<strong>Compute Unified Devices Architectured</strong>) 是由NVIDIA推出的一种通用并行计算架构，旨在利用显卡的强大计算能力解决复杂的计算问题。CUDA不仅仅是一个编程模型，更是一种计算平台，它为开发人员提供了一种高效利用GPU（图形处理器）进行并行计算的方式。</p>
-<h6 id="1-1-1-cuda相关概念"><a href="#1-1-1-cuda相关概念" class="headerlink" title="1.1.1 cuda相关概念"></a>1.1.1 cuda相关概念</h6><ul>
-<li>nvidia driver<ul>
-<li>操作系统和硬件GPU进行沟通交互的程序。<strong>:那为什么在linux上不显式加载cuda也可以</strong></li>
+<h4 id="一-cuda是什么"><a class="markdownIt-Anchor" href="#一-cuda是什么"></a> 一、Cuda是什么</h4>
+<h5 id="11-cuda的含义"><a class="markdownIt-Anchor" href="#11-cuda的含义"></a> 1.1 Cuda的含义</h5>
+<p>你说的对，但Cuda (<strong>Compute Unified Devices Architectured</strong>) 是由NVIDIA推出的一种通用并行计算架构，旨在利用显卡的强大计算能力解决复杂的计算问题。CUDA不仅仅是一个编程模型，更是一种计算平台，它为开发人员提供了一种高效利用GPU（图形处理器）进行并行计算的方式。</p>
+<h6 id="111-cuda相关概念"><a class="markdownIt-Anchor" href="#111-cuda相关概念"></a> 1.1.1 cuda相关概念</h6>
+<ul>
+<li>
+<p>nvidia driver</p>
+<ul>
+<li>操作系统和硬件GPU进行沟通交互的程序。</li>
 </ul>
 </li>
-<li>cuda-toolkit<ul>
+<li>
+<p>cuda-toolkit</p>
+<ul>
 <li>是基于驱动程序，用来实现GPU并行计算和加速深度学习的软件包。通过这个软件包，调用驱动，实现更加高级的功能。</li>
 </ul>
 </li>
-<li>cudnn<ul>
+<li>
+<p>cudnn</p>
+<ul>
 <li>是专门针对深度学习的GPU加速库，如果你要使用深度学习框架，这个是必需的。虽然也是CUDA Toolkit的组件，但是官方的下载包里面并没有，需要自己额外下载。:是在conda环境中还是在用户环境中？下torch的时候会自动下载吗？</li>
 </ul>
 </li>
-<li>pytorch<ul>
+<li>
+<p>pytorch</p>
+<ul>
 <li>CUDA Toolkit并没有提供深度学习的框架，只是提供了如何高效调用GPU的软件库。如果你要创建深度学习模型，进行训练。还是要使用深度学习框架。</li>
 </ul>
 </li>
-<li><p>NVCC</p>
+<li>
+<p>NVCC</p>
 <ul>
 <li>cuda-c+ /cuda-c -的编译器</li>
 </ul>
 </li>
-<li><p>nvidia-smi</p>
+<li>
+<p>nvidia-smi</p>
 <ul>
 <li>基于Nvidia smi的显卡管控软件</li>
 </ul>
 </li>
-<li><p>cudnn</p>
+<li>
+<p>cudnn</p>
 </li>
 </ul>
-<h6 id="1-1-2-相关指令显示的cuda"><a href="#1-1-2-相关指令显示的cuda" class="headerlink" title="1.1.2 相关指令显示的cuda"></a>1.1.2 相关指令显示的cuda</h6><ul>
-<li><code>nvidia-smi</code><ul>
+<h6 id="112-相关指令显示的cuda"><a class="markdownIt-Anchor" href="#112-相关指令显示的cuda"></a> 1.1.2 相关指令显示的cuda</h6>
+<ul>
+<li><code>nvidia-smi</code>
+<ul>
 <li>输出由NVIDIA System Management Interface显示的显卡信息</li>
 <li>显示nvidia driver版本/cuda版本</li>
 <li><strong>需要安装驱动&amp;&amp;有显卡</strong></li>
@@ -295,7 +318,8 @@
 </ul>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nvidia-smi</span><br></pre></td></tr></table></figure>
 <ul>
-<li><code>nvcc -v</code><ul>
+<li><code>nvcc -v</code>
+<ul>
 <li>输出nvcc的版本/cudatoolkit的版本</li>
 <li>检查是否安装<strong>cudatoolkit</strong></li>
 </ul>
@@ -303,70 +327,93 @@
 </ul>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nvcc -V</span><br></pre></td></tr></table></figure>
 <ul>
-<li><code>torch.version.cuda</code><ul>
+<li><code>torch.version.cuda</code>
+<ul>
 <li>检查torch依赖的cuda</li>
 <li>需要安装cudatoolkit再安装torch，或者由conda内安装cuda</li>
 </ul>
 </li>
 </ul>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">torch.version.cuda</span><br></pre></td></tr></table></figure>
-<h6 id="1-1-3-不同情况下提到的的Cuda"><a href="#1-1-3-不同情况下提到的的Cuda" class="headerlink" title="1.1.3 不同情况下提到的的Cuda"></a>1.1.3 不同情况下提到的的Cuda</h6><ul>
-<li>pytorch<strong>依赖的cuda</strong>版本<ul>
-<li></li>
-</ul>
+<h6 id="113-不同情况下提到的的cuda"><a class="markdownIt-Anchor" href="#113-不同情况下提到的的cuda"></a> 1.1.3 不同情况下提到的的Cuda</h6>
+<ul>
+<li>
+<h2 id="pytorch依赖的cuda版本"><a class="markdownIt-Anchor" href="#pytorch依赖的cuda版本"></a> pytorch<strong>依赖的cuda</strong>版本</h2>
 </li>
 </ul>
-<h5 id="1-2-GPU、Nvidia-Driver和-Cuda-Toolkit的关系"><a href="#1-2-GPU、Nvidia-Driver和-Cuda-Toolkit的关系" class="headerlink" title="1.2 GPU、Nvidia Driver和 Cuda Toolkit的关系"></a>1.2 GPU、Nvidia Driver和 Cuda Toolkit的关系</h5><p><img src="https://i-blog.csdnimg.cn/blog_migrate/91e3505b47511db2ba97d3a2bea1b97a.png" alt="来自references-1" style="zoom: 67%;" /></p>
-<h6 id="1-2-1-nvidia-driver和cuda-toolkit的关系"><a href="#1-2-1-nvidia-driver和cuda-toolkit的关系" class="headerlink" title="1.2.1  nvidia driver和cuda toolkit的关系"></a>1.2.1  nvidia driver和cuda toolkit的关系</h6><ul>
+<h5 id="12-gpu-nvidia-driver和-cuda-toolkit的关系"><a class="markdownIt-Anchor" href="#12-gpu-nvidia-driver和-cuda-toolkit的关系"></a> 1.2 GPU、Nvidia Driver和 Cuda Toolkit的关系</h5>
+<img src="https://i-blog.csdnimg.cn/blog_migrate/91e3505b47511db2ba97d3a2bea1b97a.png" alt="来自references-1" style="zoom: 67%;" />
+<h6 id="121-nvidia-driver和cuda-toolkit的关系"><a class="markdownIt-Anchor" href="#121-nvidia-driver和cuda-toolkit的关系"></a> 1.2.1  nvidia driver和cuda toolkit的关系</h6>
+<ul>
 <li>编程关系</li>
-<li>版本对应关系：<ul>
+<li>版本对应关系：
+<ul>
 <li>nvidia driver向下兼容cuda toolkit</li>
 </ul>
 </li>
 </ul>
-<h5 id="1-3-nvidia-Driver-cuda-driver"><a href="#1-3-nvidia-Driver-cuda-driver" class="headerlink" title="1.3 nvidia Driver/cuda driver"></a>1.3 nvidia Driver/cuda driver</h5><p><img src="http://www.ituring.com.cn/figures/2014/LinuxDriver/01.d01z.001.png" alt="驱动与操作系统" style="zoom:50%;" /></p>
-<h5 id="1-4-cuda-toolkit"><a href="#1-4-cuda-toolkit" class="headerlink" title="1.4 cuda-toolkit"></a>1.4 cuda-toolkit</h5><p>正如<a href="#ref:8">官网</a>所说。CUDA Toolkit是<strong>NVIDIA提供的一套完整的CUDA开发工具包</strong>，它包含了CUDA编程所需的所有组件，如编译器、调试器、运行时库等。 此外，CUDA Toolkit还提供了<strong>Nvidia驱动程序(安装的同时会安装驱动以匹配版本，当然也可以直接安装驱动)</strong>，使得开发者可以在GPU上运行CUDA程序。 CUDA Toolkit的完整性和易用性使得它成为了GPU编程的首选工具。</p>
+<h5 id="13-nvidia-drivercuda-driver"><a class="markdownIt-Anchor" href="#13-nvidia-drivercuda-driver"></a> 1.3 nvidia Driver/cuda driver</h5>
+<img src="http://www.ituring.com.cn/figures/2014/LinuxDriver/01.d01z.001.png" alt="驱动与操作系统" style="zoom:50%;" />
+<h5 id="14-cuda-toolkit"><a class="markdownIt-Anchor" href="#14-cuda-toolkit"></a> 1.4 cuda-toolkit</h5>
+<p>正如<a href="#ref:8">官网</a>所说。CUDA Toolkit是<strong>NVIDIA提供的一套完整的CUDA开发工具包</strong>，它包含了CUDA编程所需的所有组件，如编译器、调试器、运行时库等。 此外，CUDA Toolkit还提供了<strong>Nvidia驱动程序(安装的同时会安装驱动以匹配版本，当然也可以直接安装驱动)</strong>，使得开发者可以在GPU上运行CUDA程序。 CUDA Toolkit的完整性和易用性使得它成为了GPU编程的首选工具。</p>
 <p>具体的<strong>组成</strong>包括：<a href="#ref:7">cudatoolkit</a></p>
 <ul>
-<li><p><strong>Complizer</strong>:CUDA-C和CUDA-C++编译器<code>NVCC</code>。</p>
+<li>
+<p><strong>Complizer</strong>:CUDA-C和CUDA-C++编译器<code>NVCC</code>。</p>
 </li>
-<li><p><strong>Tools</strong>: 提供一些像<code>profiler</code>,<code>debuggers</code>等工具。</p>
+<li>
+<p><strong>Tools</strong>: 提供一些像<code>profiler</code>,<code>debuggers</code>等工具。</p>
 </li>
-<li><strong>Libraries</strong><ul>
+<li>
+<p><strong>Libraries</strong></p>
+<ul>
 <li>cudar/cupti等等</li>
 <li>不包含<strong>cudnn</strong></li>
 </ul>
 </li>
-<li><strong>CUDA Samples</strong>: 示如何使用各种CUDA和library API的代码示例。</li>
-<li><strong>Nvidia Driver</strong>:运行CUDA应用程序需要系统至少有一个<strong>具有CUDA功能的GPU</strong>和<strong>与CUDA工具包兼容的驱动程序</strong>。<ul>
+<li>
+<p><strong>CUDA Samples</strong>: 示如何使用各种CUDA和library API的代码示例。</p>
+</li>
+<li>
+<p><strong>Nvidia Driver</strong>:运行CUDA应用程序需要系统至少有一个<strong>具有CUDA功能的GPU</strong>和<strong>与CUDA工具包兼容的驱动程序</strong>。</p>
+<ul>
 <li>cudatoolkit向下兼容driver</li>
 </ul>
 </li>
 </ul>
-<h5 id="1-4-nvcc-Nvidia-CUDA-Compiler"><a href="#1-4-nvcc-Nvidia-CUDA-Compiler" class="headerlink" title="1.4 nvcc (Nvidia CUDA Compiler)"></a>1.4 nvcc (Nvidia CUDA Compiler)</h5><p>:TOCHECK</p>
-<h5 id="1-5-cudnn"><a href="#1-5-cudnn" class="headerlink" title="1.5 cudnn"></a>1.5 cudnn</h5><p>:TOCHECK</p>
-<h4 id="二、Cuda的安装"><a href="#二、Cuda的安装" class="headerlink" title="二、Cuda的安装"></a>二、Cuda的安装</h4><h5 id="2-1-常见安装途径对应关系"><a href="#2-1-常见安装途径对应关系" class="headerlink" title="2.1 常见安装途径对应关系"></a>2.1 常见安装途径对应关系</h5><ol>
+<h5 id="14-nvcc-nvidia-cuda-compiler"><a class="markdownIt-Anchor" href="#14-nvcc-nvidia-cuda-compiler"></a> 1.4 nvcc (Nvidia CUDA Compiler)</h5>
+<p>:TOCHECK</p>
+<h5 id="15-cudnn"><a class="markdownIt-Anchor" href="#15-cudnn"></a> 1.5 cudnn</h5>
+<p>:TOCHECK</p>
+<h4 id="二-cuda的安装"><a class="markdownIt-Anchor" href="#二-cuda的安装"></a> 二、Cuda的安装</h4>
+<h5 id="21-常见安装途径对应关系"><a class="markdownIt-Anchor" href="#21-常见安装途径对应关系"></a> 2.1 常见安装途径对应关系</h5>
+<ol>
 <li>在不需要进行cuda相关程序的编译，只需要动态库时，参考2.1.2即可；</li>
 <li>在需要进行编译，首先参考2.1.2的第二部分安装conda下的cuda-toolkit安装；但此时需要设置CUDA_HOME:TOCHECK安装之后conda不会自动设置路径吗？</li>
 <li>若不存在对应版本或缺少部分库，则参考2.1.1安装完整版的cuda-toolkit。</li>
 </ol>
-<h6 id="2-1-1-英伟达官网安装："><a href="#2-1-1-英伟达官网安装：" class="headerlink" title="2.1.1 英伟达官网安装："></a>2.1.1 英伟达官网安装：</h6><ul>
-<li><p>官网安装CUDA Toolkit</p>
+<h6 id="211-英伟达官网安装"><a class="markdownIt-Anchor" href="#211-英伟达官网安装"></a> 2.1.1 英伟达官网安装：</h6>
+<ul>
+<li>
+<p>官网安装CUDA Toolkit</p>
 <p>1.参考<a href="#ref:10">linux安装</a>和<a href="#ref:11">windows安装</a></p>
 <p>2.会包含对应版本的driver的安装</p>
 <p>3.deb安装不会卸载掉原来的旧驱动：因为有程序依赖（占用）于这个驱动。:TOCHECK</p>
 <p>4.run安装可能会与原来的旧驱动冲突。:TOCHECK</p>
 <p>5.可能不会安装上cudnn:TOCHECK</p>
 </li>
-<li><p>单独安装驱动</p>
+<li>
+<p>单独安装驱动</p>
 <ol>
-<li>适用于游戏场景下的使用。    </li>
+<li>适用于游戏场景下的使用。</li>
 <li>驱动下载网址:<a target="_blank" rel="noopener" href="https://www.nvidia.cn/drivers/lookup/">官方驱动检索与下载</a></li>
 </ol>
 </li>
 </ul>
-<h6 id="2-1-2-conda安装"><a href="#2-1-2-conda安装" class="headerlink" title="2.1.2 conda安装"></a>2.1.2 conda安装</h6><ul>
-<li>安装GPU版本Pytorch自动安装<ol>
+<h6 id="212-conda安装"><a class="markdownIt-Anchor" href="#212-conda安装"></a> 2.1.2 conda安装</h6>
+<ul>
+<li>安装GPU版本Pytorch自动安装
+<ol>
 <li>参考<a target="_blank" rel="noopener" href="https://pytorch.org/get-started/previous-versions/">Pytorch官方安装指令</a>；</li>
 <li>主要包含应用程序在使用 CUDA 相关的功能时所依赖的<strong>动态链接库(包括cudatoolkit和cudnn)，不会安装驱动程序</strong>。</li>
 <li>是不包含驱动的，因此安装的cuda-toolkit需要当前driver可兼容；</li>
@@ -374,19 +421,26 @@
 </ol>
 </li>
 </ul>
-<p><img src="https://github.com/threegold116/picx-images-hosting/raw/master/20240729/image.7p3i8i1jk2.webp" alt="image" style="zoom:50%;" /></p>
+<img src="https://github.com/threegold116/picx-images-hosting/raw/master/20240729/image.7p3i8i1jk2.webp" alt="image" style="zoom:50%;" />
 <ul>
-<li>手动安装conda中的cuda-toolkit<ol>
+<li>手动安装conda中的cuda-toolkit
+<ol>
 <li>参考<a target="_blank" rel="noopener" href="https://anaconda.org/nvidia/cuda">Anaconda packages:nvidia-cuda</a>和<a target="_blank" rel="noopener" href="https://anaconda.org/nvidia/cuda-toolkit">Anaconda packages:nvidia-cuda-toolkit</a>;:TOCHECK这两的区别</li>
 </ol>
 </li>
 </ul>
-<h6 id="2-1-1-英伟达官方安装"><a href="#2-1-1-英伟达官方安装" class="headerlink" title="2.1.1 英伟达官方安装"></a>2.1.1 英伟达官方安装</h6><h5 id="2-2-使用多版本的cuda-toolkit"><a href="#2-2-使用多版本的cuda-toolkit" class="headerlink" title="2.2 使用多版本的cuda-toolkit"></a>2.2 使用多版本的cuda-toolkit</h5><h6 id="2-2-1-单CUDA-Driver"><a href="#2-2-1-单CUDA-Driver" class="headerlink" title="2.2.1 单CUDA Driver"></a>2.2.1 单CUDA Driver</h6><p><img src="https://i-blog.csdnimg.cn/blog_migrate/5aaedbe8ae4663b3faf7c7a2b47c1bfe.png" alt="在这里插入图片描述" style="zoom:67%;" /></p>
+<h6 id="211-英伟达官方安装"><a class="markdownIt-Anchor" href="#211-英伟达官方安装"></a> 2.1.1 英伟达官方安装</h6>
+<h5 id="22-使用多版本的cuda-toolkit"><a class="markdownIt-Anchor" href="#22-使用多版本的cuda-toolkit"></a> 2.2 使用多版本的cuda-toolkit</h5>
+<h6 id="221-单cuda-driver"><a class="markdownIt-Anchor" href="#221-单cuda-driver"></a> 2.2.1 单CUDA Driver</h6>
+<img src="https://i-blog.csdnimg.cn/blog_migrate/5aaedbe8ae4663b3faf7c7a2b47c1bfe.png" alt="在这里插入图片描述" style="zoom:67%;" />
 <ul>
 <li>conda环境隔离</li>
 <li></li>
 </ul>
-<h5 id="2-3-使用多版本的nvidia-driver"><a href="#2-3-使用多版本的nvidia-driver" class="headerlink" title="2.3 使用多版本的nvidia driver"></a>2.3 使用多版本的nvidia driver</h5><h4 id="三、Torch-与-Cuda"><a href="#三、Torch-与-Cuda" class="headerlink" title="三、Torch 与 Cuda"></a>三、Torch 与 Cuda</h4><h5 id="3-1-查找可用CUDA的过程"><a href="#3-1-查找可用CUDA的过程" class="headerlink" title="3.1 查找可用CUDA的过程"></a>3.1 查找可用CUDA的过程</h5><ol>
+<h5 id="23-使用多版本的nvidia-driver"><a class="markdownIt-Anchor" href="#23-使用多版本的nvidia-driver"></a> 2.3 使用多版本的nvidia driver</h5>
+<h4 id="三-torch-与-cuda"><a class="markdownIt-Anchor" href="#三-torch-与-cuda"></a> 三、Torch 与 Cuda</h4>
+<h5 id="31-查找可用cuda的过程"><a class="markdownIt-Anchor" href="#31-查找可用cuda的过程"></a> 3.1 查找可用CUDA的过程</h5>
+<ol>
 <li>环境变量CUDA_HOME 或 CUDA_PATH</li>
 <li>/usr/local/cuda</li>
 <li>which nvcc的上级上级目录(torch.utils.cpp_extension.CUDA_HOME=None)</li>
