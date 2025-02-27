@@ -360,34 +360,39 @@
 ]]></content>
   </entry>
   <entry>
-    <title></title>
-    <url>/2025/02/27/VLM-R1/</url>
-    <content><![CDATA[<h1 id="VLM-R1（Reasoning）总结"><a href="#VLM-R1（Reasoning）总结" class="headerlink" title="VLM-R1（Reasoning）总结"></a>VLM-R1（Reasoning）总结</h1><h4 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h4><blockquote>
+    <title>VLMR1</title>
+    <url>/2025/02/27/VLMR1/</url>
+    <content><![CDATA[<h1 id="vlm-r1reasoning总结"><a class="markdownIt-Anchor" href="#vlm-r1reasoning总结"></a> VLM-R1（Reasoning）总结</h1>
+<h4 id="参考资料"><a class="markdownIt-Anchor" href="#参考资料"></a> 参考资料</h4>
+<blockquote>
 <p><a href="https://rank.opencompass.org.cn/home">[1]OpenCompass</a></p>
 <p><a href="https://qwenlm.github.io/zh/blog/qvq-72b-preview/">[2]Qwen Blog:QVQ解读</a></p>
 </blockquote>
-<h4 id="相关论文"><a href="#相关论文" class="headerlink" title="相关论文"></a>相关论文</h4><ul>
+<h4 id="相关论文"><a class="markdownIt-Anchor" href="#相关论文"></a> 相关论文</h4>
+<ul>
 <li>Mulberry: Empowering MLLM with o1-like Reasoning and Reflection via Collective Monte Carlo Tree Search</li>
 <li>Can MLLMs Reason in Multimodality? EMMA: An Enhanced MultiModal ReAsoning Benchmark</li>
 <li>Diving into Self-Evolving Training for Multimodal Reasoning</li>
 </ul>
-<h4 id="常见问题"><a href="#常见问题" class="headerlink" title="常见问题"></a>常见问题</h4><ul>
+<h4 id="常见问题"><a class="markdownIt-Anchor" href="#常见问题"></a> 常见问题</h4>
+<ul>
 <li>System-2和System-1</li>
 </ul>
-<h4 id="0-相关Reasoning模型"><a href="#0-相关Reasoning模型" class="headerlink" title="0. 相关Reasoning模型"></a>0. 相关Reasoning模型</h4><ul>
+<h4 id="0-相关reasoning模型"><a class="markdownIt-Anchor" href="#0-相关reasoning模型"></a> 0. 相关Reasoning模型</h4>
+<ul>
 <li>Ovis-2</li>
 <li>QVQ/Qwen-VL-2.5</li>
 </ul>
-<h4 id="1-目前已开源的多个库"><a href="#1-目前已开源的多个库" class="headerlink" title="1. 目前已开源的多个库"></a>1. 目前已开源的多个库</h4><ul>
-<li><a href="https://github.com/Deep-Agent/R1-V">R1-V</a><img src="https://img.shields.io/github/stars/Deep-Agent/R1-V.svg?style=social&amp;label=Star" alt="Star"></li>
-<li><a href="https://github.com/EvolvingLMMs-Lab/open-r1-multimodal">open-r1-multimodal</a><img src="https://img.shields.io/github/stars/EvolvingLMMs-Lab/open-r1-multimodal.svg?style=social&amp;label=Star" alt="Star"></li>
-<li><a href="https://github.com/TideDra/lmm-r1">llm-r1</a><img src="https://img.shields.io/github/stars/TideDra/lmm-r1.svg?style=social&amp;label=Star" alt="Star"></li>
-<li><a href="https://github.com/Wang-Xiaodong1899/Open-R1-Video">Open-R1-Video</a><img src="https://img.shields.io/github/stars/Wang-Xiaodong1899/Open-R1-Video.svg?style=social&amp;label=Star" alt="Star"></li>
-<li><a href="https://github.com/tulerfeng/Video-R1">Video-R1</a><img src="https://img.shields.io/github/stars/tulerfeng/Video-R1.svg?style=social&amp;label=Star" alt="Star"> </li>
-<li><a href="https://github.com/Fancy-MLLM/R1-Onevision">R1-Onvision</a><img src="https://img.shields.io/github/stars/Fancy-MLLM/R1-Onevision.svg?style=social&amp;label=Star" alt="Star"></li>
-<li><a href="https://github.com/om-ai-lab/VLM-R1">VLM-R1</a><img src="https://img.shields.io/github/stars/om-ai-lab/VLM-R1.svg?style=social&amp;label=Star" alt="Star"></li>
+<h4 id="1-目前已开源的多个库"><a class="markdownIt-Anchor" href="#1-目前已开源的多个库"></a> 1. 目前已开源的多个库</h4>
+<ul>
+<li><a href="https://github.com/Deep-Agent/R1-V">R1-V</a><img src="https://img.shields.io/github/stars/Deep-Agent/R1-V.svg?style=social&amp;label=Star" alt="Star" /></li>
+<li><a href="https://github.com/EvolvingLMMs-Lab/open-r1-multimodal">open-r1-multimodal</a><img src="https://img.shields.io/github/stars/EvolvingLMMs-Lab/open-r1-multimodal.svg?style=social&amp;label=Star" alt="Star" /></li>
+<li><a href="https://github.com/TideDra/lmm-r1">llm-r1</a><img src="https://img.shields.io/github/stars/TideDra/lmm-r1.svg?style=social&amp;label=Star" alt="Star" /></li>
+<li><a href="https://github.com/Wang-Xiaodong1899/Open-R1-Video">Open-R1-Video</a><img src="https://img.shields.io/github/stars/Wang-Xiaodong1899/Open-R1-Video.svg?style=social&amp;label=Star" alt="Star" /></li>
+<li><a href="https://github.com/tulerfeng/Video-R1">Video-R1</a><img src="https://img.shields.io/github/stars/tulerfeng/Video-R1.svg?style=social&amp;label=Star" alt="Star" /></li>
+<li><a href="https://github.com/Fancy-MLLM/R1-Onevision">R1-Onvision</a><img src="https://img.shields.io/github/stars/Fancy-MLLM/R1-Onevision.svg?style=social&amp;label=Star" alt="Star" /></li>
+<li><a href="https://github.com/om-ai-lab/VLM-R1">VLM-R1</a><img src="https://img.shields.io/github/stars/om-ai-lab/VLM-R1.svg?style=social&amp;label=Star" alt="Star" /></li>
 </ul>
-<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -404,7 +409,7 @@
 </thead>
 <tbody>
 <tr>
-<td><img src="https://img.shields.io/github/stars/tulerfeng/Video-R1.svg?style=social&amp;label=Star" alt="Star"><br> Video-R1</td>
+<td><img src="https://img.shields.io/github/stars/tulerfeng/Video-R1.svg?style=social&amp;label=Star" alt="Star" /><br> Video-R1</td>
 <td>无</td>
 <td>GPRO</td>
 <td>Qwen2-VL-7B-Instruct</td>
@@ -415,7 +420,7 @@
 <td></td>
 </tr>
 <tr>
-<td><img src="https://img.shields.io/github/stars/om-ai-lab/VLM-R1.svg?style=social&amp;label=Star" alt="Star"><br/>VLM-R1</td>
+<td><img src="https://img.shields.io/github/stars/om-ai-lab/VLM-R1.svg?style=social&amp;label=Star" alt="Star" /><br/>VLM-R1</td>
 <td>无</td>
 <td>GPRO</td>
 <td>Qwen2.5-VL-3B-Instruct</td>
@@ -426,7 +431,7 @@
 <td></td>
 </tr>
 <tr>
-<td><img src="https://img.shields.io/github/stars/Fancy-MLLM/R1-Onevision.svg?style=social&amp;label=Star" alt="Star"><br>R1-Onevision</td>
+<td><img src="https://img.shields.io/github/stars/Fancy-MLLM/R1-Onevision.svg?style=social&amp;label=Star" alt="Star" /><br>R1-Onevision</td>
 <td>CoT SFT</td>
 <td>Rule-Based RL</td>
 <td>Qwen2.5-VL-7B</td>
@@ -437,7 +442,7 @@
 <td></td>
 </tr>
 <tr>
-<td><img src="https://img.shields.io/github/stars/EvolvingLMMs-Lab/open-r1-multimodal.svg?style=social&amp;label=Star" alt="Star"><br>open-r1-multimodal</td>
+<td><img src="https://img.shields.io/github/stars/EvolvingLMMs-Lab/open-r1-multimodal.svg?style=social&amp;label=Star" alt="Star" /><br>open-r1-multimodal</td>
 <td>无</td>
 <td>GRPO</td>
 <td>Qwen2-VL-2B/7B-Instruc</td>
@@ -448,9 +453,9 @@
 <td>数据集</td>
 </tr>
 <tr>
-<td><img src="https://img.shields.io/github/stars/TideDra/lmm-r1.svg?style=social&amp;label=Star" alt="Star"><br>llm-r1</td>
+<td><img src="https://img.shields.io/github/stars/TideDra/lmm-r1.svg?style=social&amp;label=Star" alt="Star" /><br>llm-r1</td>
 <td>无</td>
-<td>PPO/REINFORCE++/<strong>RLOO </strong></td>
+<td>PPO/REINFORCE++/**RLOO **</td>
 <td>Qwen2.5-VL-3B</td>
 <td>8k text-only MATH (level3-5) dataset</td>
 <td></td>
@@ -459,7 +464,7 @@
 <td></td>
 </tr>
 <tr>
-<td><img src="https://img.shields.io/github/stars/Wang-Xiaodong1899/Open-R1-Video.svg?style=social&amp;label=Star" alt="Star"><br>Open-R1-Video</td>
+<td><img src="https://img.shields.io/github/stars/Wang-Xiaodong1899/Open-R1-Video.svg?style=social&amp;label=Star" alt="Star" /><br>Open-R1-Video</td>
 <td>无</td>
 <td>GRPO</td>
 <td>Qwen2-VL-7B-Instruct</td>
@@ -470,7 +475,7 @@
 <td></td>
 </tr>
 <tr>
-<td><img src="https://img.shields.io/github/stars/Deep-Agent/R1-V.svg?style=social&amp;label=Star" alt="Star"><br>R1-V</td>
+<td><img src="https://img.shields.io/github/stars/Deep-Agent/R1-V.svg?style=social&amp;label=Star" alt="Star" /><br>R1-V</td>
 <td>无</td>
 <td>GRPO(RLVR)</td>
 <td>Qwen2-VL-2B/7B-Instruc</td>
@@ -482,19 +487,22 @@
 </tr>
 </tbody>
 </table>
-</div>
-<h5 id="存在的问题"><a href="#存在的问题" class="headerlink" title="存在的问题"></a>存在的问题</h5><ul>
+<h5 id="存在的问题"><a class="markdownIt-Anchor" href="#存在的问题"></a> 存在的问题</h5>
+<ul>
 <li>多模态领域longcot数据的缺乏</li>
 <li>…</li>
 </ul>
-<h4 id="2-相关资源"><a href="#2-相关资源" class="headerlink" title="2. 相关资源"></a>2. 相关资源</h4><ul>
+<h4 id="2-相关资源"><a class="markdownIt-Anchor" href="#2-相关资源"></a> 2. 相关资源</h4>
+<ul>
 <li>OpenRLHF</li>
 <li>Open-r1</li>
 <li>trl</li>
 </ul>
 <p>…</p>
-<h4 id="3-相关技术"><a href="#3-相关技术" class="headerlink" title="3.相关技术"></a>3.相关技术</h4><ul>
-<li>DeepSeekR1<ul>
+<h4 id="3相关技术"><a class="markdownIt-Anchor" href="#3相关技术"></a> 3.相关技术</h4>
+<ul>
+<li>DeepSeekR1
+<ul>
 <li>long cot+</li>
 </ul>
 </li>
